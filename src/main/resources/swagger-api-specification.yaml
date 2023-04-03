@@ -1,0 +1,95 @@
+openapi: 3.0.0
+
+info:
+  version: 0.0.1
+  title: Change Request Service
+  description: The Change Request service
+
+tags:
+  - name: "MoveTop"
+
+
+paths:
+  /movetop:
+    post:
+      summary: API for moving top
+      tags:
+        - "MoveTop"
+      description: This API is used to trigger the Move top process
+      operationId: movetop
+      requestBody:
+        description: Optional description in *Markdown*
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MoveTopRequest'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/MoveTopRequest'
+      responses:
+        "200":
+          description:  ok
+          content:
+            application/json:
+              schema:
+                type: string
+  /movetoppin:
+    post:
+      summary: API for moving top with pin
+      tags:
+        - "MoveTop"
+      description: This API is used to trigger the Move top with pin process
+      operationId: movetoppin
+      requestBody:
+        description: Optional description in *Markdown*
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MoveTopPinRequest'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/MoveTopPinRequest'
+      responses:
+        "200":
+          description:  ok
+          content:
+            application/json:
+              schema:
+                type: string
+
+components:
+  schemas:
+    MoveTopRequest:
+      type: object
+      properties:
+        old Top:
+          type: string
+        old Sub:
+          type: string
+        old Type:
+          type: string
+        new Top:
+          type: string
+        new Sub:
+          type: string
+        new Type:
+          type: string
+    MoveTopPinRequest:
+      type: object
+      properties:
+        old Top:
+          type: string
+        old Sub:
+          type: string
+        old Type:
+          type: string
+        new Top:
+          type: string
+        new Sub:
+          type: string
+        new Type:
+          type: string
+        pin:
+          type: string
